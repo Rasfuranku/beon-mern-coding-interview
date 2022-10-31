@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 
 import { BackendClient } from "../clients/backend.client";
 
@@ -16,4 +16,11 @@ export function useFlights() {
   const query = useQuery(["flights"], () => backendClient.getFlights());
 
   return query?.data?.data;
+}
+
+export function useUpdateFlightStatus() {
+  const mutation = useMutation((bodyRequest: object) => {
+    return backendClient.updateFlight(bodyRequest);
+  });
+  return mutation;
 }

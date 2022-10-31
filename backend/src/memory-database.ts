@@ -12,9 +12,9 @@ export const db = async ({ test = false }) => {
             useCreateIndex: true,
             useUnifiedTopology: true,
             useFindAndModify: false,
-        }
+        };
 
-        ;(async () => {
+        (async () => {
             await mongoose.connect(uri, mongooseOpts)
             console.log(
                 '« Connected to In-Memory database. Loading base data... »'

@@ -24,4 +24,8 @@ export class BackendClient {
   async createPerson(person: any) {
     return await httpClient.post(`${base}/persons`, person);
   }
+
+  async updateFlight(bodyRequest: object) {    
+    return await httpClient.put(`${base}/flights`, {data: bodyRequest});
+  }
 }

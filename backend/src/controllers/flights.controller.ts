@@ -1,4 +1,4 @@
-import { JsonController, Get } from 'routing-controllers'
+import { JsonController, Get, Put, Body } from 'routing-controllers'
 import { FlightsService } from '../services/flights.service'
 
 const flightsService = new FlightsService();
@@ -11,5 +11,15 @@ export default class FlightsController {
             status: 200,
             data: await flightsService.getAll(),
         }
+    }
+
+    @Put('')
+    async updateFlightStatus(@Body() body: any) {
+        const { code, status } = body.data;        
+
+        await flightsService.updateFlightStatus(code, status);
+        return {
+            status: 200
+        };
     }
 }

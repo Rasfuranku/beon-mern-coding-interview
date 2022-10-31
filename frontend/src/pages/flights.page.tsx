@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { RouteComponentProps } from "@reach/router";
-import { Container, Box, Typography } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 
 import { FlightCard } from "../components/flights/flight-card";
 import { FlightModel } from "../models/flight.model";
@@ -29,6 +29,7 @@ export const FlightsPage: React.FC<RouteComponentProps> = () => {
                 destination={flight.destination}
                 code={flight.code}
                 status={flight.status}
+                key={flight.code}
               />
             ))
           : null}
